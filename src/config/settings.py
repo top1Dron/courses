@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'users',
+    'catalog.apps.CoursesConfig',
+
+    'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +57,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
-
-AUTH_USER_MODEL = 'users.CustomUser'
 
 TEMPLATES = [
     {
@@ -159,4 +160,9 @@ LOGGING = {
         #     'handlers': ['file'],
         # },
     },
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
